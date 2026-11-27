@@ -1,6 +1,6 @@
 # GLAN ML & DV Lab
 
-Repository for GLAN Machine Learning & Data Visualization Lab submissions.
+Repository for GLAN Machine Learning & Data Visualization Study Material.
 
 > 📖 **Students:** Please check the **[Submission & Upload Guide (HOW_TO_UPLOAD.md)](./HOW_TO_UPLOAD.md)** for step-by-step instructions on how to upload your `.ipynb`, `.py`, and `.pbix` experiment files.
 
