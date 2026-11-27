@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "d6e8a647aa25f9563bbd",
+  "displayName": "Exp05_Geo_Visualization Report",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

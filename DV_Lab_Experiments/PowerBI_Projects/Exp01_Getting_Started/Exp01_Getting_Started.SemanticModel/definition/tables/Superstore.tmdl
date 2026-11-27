@@ -1,0 +1,78 @@
+table Superstore
+	lineageTag: 1a752bde-ac2d-be4e-2598-be47491cbff6
+
+	column Order_ID
+		dataType: string
+		lineageTag: f28fd82f-43a6-b910-d346-c19d86a1b6b5
+		summarizeBy: none
+		sourceColumn: Order_ID
+
+	column Order_Date
+		dataType: dateTime
+		lineageTag: dd36b60d-0ee7-b75f-8b1a-3e10599b2c48
+		summarizeBy: none
+		sourceColumn: Order_Date
+
+	column Region
+		dataType: string
+		lineageTag: b11de4e4-4d2d-cb29-8bef-1b9881b2431c
+		summarizeBy: none
+		sourceColumn: Region
+
+	column State
+		dataType: string
+		lineageTag: 7ed4fe1a-d0b8-f40f-df58-5088aaede3d7
+		summarizeBy: none
+		sourceColumn: State
+
+	column City
+		dataType: string
+		lineageTag: 8fbed82a-2e45-063f-bbf4-f5473cc5848c
+		summarizeBy: none
+		sourceColumn: City
+
+	column Category
+		dataType: string
+		lineageTag: 4ce4ee9b-3ccc-74ad-c6d3-d688a9837b8d
+		summarizeBy: none
+		sourceColumn: Category
+
+	column Sub_Category
+		dataType: string
+		lineageTag: d6e9d5ae-c70a-67c4-fc91-2ce112017b82
+		summarizeBy: none
+		sourceColumn: Sub_Category
+
+	column Quantity
+		dataType: int64
+		lineageTag: 978e14e0-0b05-1966-381b-52dfbadd4e8e
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+	column Discount
+		dataType: double
+		lineageTag: adc3accb-9cf3-e96a-0f8c-76736ef55762
+		summarizeBy: sum
+		sourceColumn: Discount
+
+	column Sales
+		dataType: double
+		lineageTag: 813138ce-586f-098d-eca5-97519aafd2d9
+		summarizeBy: sum
+		sourceColumn: Sales
+
+	column Profit
+		dataType: double
+		lineageTag: f5e0f985-85eb-60d5-5f57-abf3ff9520e3
+		summarizeBy: sum
+		sourceColumn: Profit
+
+	partition Superstore_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp01_Superstore_Sample.csv"),[Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Order_ID", type text}, {"Order_Date", type date}, {"Region", type text}, {"State", type text}, {"City", type text}, {"Category", type text}, {"Sub_Category", type text}, {"Quantity", Int64.Type}, {"Discount", type number}, {"Sales", type number}, {"Profit", type number}})
+			in
+				#"Changed Type"

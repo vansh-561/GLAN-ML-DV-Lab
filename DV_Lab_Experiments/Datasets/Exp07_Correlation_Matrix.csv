@@ -1,0 +1,17 @@
+Feature_X,Feature_Y,Correlation
+Sales,Sales,1.0
+Sales,Profit,0.954
+Sales,Quantity,0.574
+Sales,Discount,-0.221
+Profit,Sales,0.954
+Profit,Profit,1.0
+Profit,Quantity,0.457
+Profit,Discount,-0.273
+Quantity,Sales,0.574
+Quantity,Profit,0.457
+Quantity,Quantity,1.0
+Quantity,Discount,-0.068
+Discount,Sales,-0.221
+Discount,Profit,-0.273
+Discount,Quantity,-0.068
+Discount,Discount,1.0

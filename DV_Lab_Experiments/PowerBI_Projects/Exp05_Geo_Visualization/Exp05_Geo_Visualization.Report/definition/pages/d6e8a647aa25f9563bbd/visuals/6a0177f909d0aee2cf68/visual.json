@@ -1,0 +1,126 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "6a0177f909d0aee2cf68",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 0,
+    "height": 670,
+    "width": 610,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "map",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Geo_COVID_Sales"
+                    }
+                  },
+                  "Property": "City"
+                }
+              },
+              "queryRef": "Geo_COVID_Sales.City",
+              "nativeQueryRef": "City",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Geo_COVID_Sales"
+                    }
+                  },
+                  "Property": "State"
+                }
+              },
+              "queryRef": "Geo_COVID_Sales.State",
+              "nativeQueryRef": "State",
+              "active": true
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Geo_COVID_Sales"
+                        }
+                      },
+                      "Property": "Regional_Sales"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Geo_COVID_Sales.Regional_Sales)",
+              "nativeQueryRef": "Regional_Sales",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Geo_COVID_Sales"
+                        }
+                      },
+                      "Property": "Active_Cases"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Geo_COVID_Sales.Active_Cases)",
+              "nativeQueryRef": "Active_Cases",
+              "active": true
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Geo_COVID_Sales"
+                        }
+                      },
+                      "Property": "Profit"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Geo_COVID_Sales.Profit)",
+              "nativeQueryRef": "Profit",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

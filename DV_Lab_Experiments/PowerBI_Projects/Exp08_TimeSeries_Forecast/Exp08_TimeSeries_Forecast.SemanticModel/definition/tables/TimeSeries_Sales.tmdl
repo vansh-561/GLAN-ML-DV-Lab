@@ -1,0 +1,51 @@
+table TimeSeries_Sales
+	lineageTag: af036a0d-f40a-7d9c-8d70-aee81b13b724
+
+	measure '3-Month Moving Avg' = ```
+			AVERAGEX(
+				DATESINPERIOD(TimeSeries_Sales[Month_Date], LASTDATE(TimeSeries_Sales[Month_Date]), -3, MONTH),
+				CALCULATE(SUM(TimeSeries_Sales[Monthly_Sales]))
+			)
+			```
+		formatString: #,##0.00
+		lineageTag: f79b6a27-1af9-dc0f-14e4-960b5391c85b
+
+	column Month_Date
+		dataType: dateTime
+		lineageTag: 734636dc-5c39-c7cb-c303-18390de833be
+		summarizeBy: none
+		sourceColumn: Month_Date
+
+	column Year
+		dataType: int64
+		lineageTag: 71c30409-0f48-3808-2c47-716ead1e8209
+		summarizeBy: sum
+		sourceColumn: Year
+
+	column Month_Num
+		dataType: int64
+		lineageTag: 8f014121-e1cb-7659-edaf-452f314a588a
+		summarizeBy: sum
+		sourceColumn: Month_Num
+
+	column Monthly_Sales
+		dataType: double
+		lineageTag: e173b830-bcee-7d32-4209-a31bcae1d023
+		summarizeBy: sum
+		sourceColumn: Monthly_Sales
+
+	column Stock_Price_Index
+		dataType: double
+		lineageTag: 8564d9f6-3168-8d9a-b706-ace2d87f259e
+		summarizeBy: sum
+		sourceColumn: Stock_Price_Index
+
+	partition TimeSeries_Sales_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp08_TimeSeries_Sales.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Month_Date", type date}, {"Year", Int64.Type}, {"Month_Num", Int64.Type}, {"Monthly_Sales", type number}, {"Stock_Price_Index", type number}})
+			in
+				#"Changed Type"

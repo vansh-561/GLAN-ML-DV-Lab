@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "4c5e51fd68ce224965d7",
+  "position": {
+    "x": 930,
+    "y": 20,
+    "z": 2000,
+    "height": 130,
+    "width": 320,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Retail_Dashboard"
+                    }
+                  },
+                  "Property": "Margin %"
+                }
+              },
+              "queryRef": "Retail_Dashboard.Margin %",
+              "nativeQueryRef": "Margin %",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

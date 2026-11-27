@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "7272254d1ebf1537dc3a",
+  "position": {
+    "x": 650,
+    "y": 580,
+    "z": 3000,
+    "height": 110,
+    "width": 600,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Olympic_Medals"
+                    }
+                  },
+                  "Property": "Total Gold"
+                }
+              },
+              "queryRef": "Olympic_Medals.Total Gold",
+              "nativeQueryRef": "Total Gold",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

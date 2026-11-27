@@ -1,0 +1,74 @@
+table Cleaned_Retail
+	lineageTag: 2268b419-80e7-75e8-4c6f-fa4f7936089a
+
+	column Order_ID
+		dataType: string
+		lineageTag: 12be20f5-7e4e-b294-ca1e-cc10625e715e
+		summarizeBy: none
+		sourceColumn: Order_ID
+
+	column Order_Date
+		dataType: dateTime
+		lineageTag: 71769d90-939c-feaa-30bd-1806c11b94be
+		summarizeBy: none
+		sourceColumn: Order_Date
+
+	column Region
+		dataType: string
+		lineageTag: c501595e-6f06-41bd-9282-c9bee3055f14
+		summarizeBy: none
+		sourceColumn: Region
+
+	column Category_Name
+		dataType: string
+		lineageTag: 8474727c-09b3-8d9b-cb8a-b4c9c1a816a2
+		summarizeBy: none
+		sourceColumn: Category_Name
+
+	column Product
+		dataType: string
+		lineageTag: ffeb771b-7114-0eaf-8c3b-76cb7cc57ddb
+		summarizeBy: none
+		sourceColumn: Product
+
+	column Quantity
+		dataType: int64
+		lineageTag: cc286383-0942-a3f5-abd1-01b53a2118ad
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+	column Unit_Price
+		dataType: double
+		lineageTag: 81d5730f-7ce3-9e66-678b-ac6d68a5efbc
+		summarizeBy: sum
+		sourceColumn: Unit_Price
+
+	column Profit_INR
+		dataType: double
+		lineageTag: 28a69784-6e97-6a8e-ae5d-3f33e266a5d3
+		summarizeBy: sum
+		sourceColumn: Profit_INR
+
+	column Total_Revenue
+		dataType: double
+		lineageTag: e2826233-b4fc-2b11-86fe-c533dcd9e23a
+		summarizeBy: sum
+		sourceColumn: Total_Revenue
+
+	partition Cleaned_Retail_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp02_Messy_Retail.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Removed Blank Rows" = Table.SelectRows(#"Promoted Headers", each [Order_ID] <> null and [Order_ID] <> ""),
+				#"Removed Columns" = Table.RemoveColumns(#"Removed Blank Rows",{"Record_Status"}),
+				#"Trimmed Region" = Table.TransformColumns(#"Removed Columns",{{"Region_Raw", Text.Trim, type text}}),
+				#"Cleaned Region" = Table.TransformColumns(#"Trimmed Region",{{"Region_Raw", Text.Clean, type text}}),
+				#"Proper Region" = Table.TransformColumns(#"Cleaned Region",{{"Region_Raw", Text.Proper, type text}}),
+				#"Renamed Columns" = Table.RenameColumns(#"Proper Region",{{"Order_Date_Txt", "Order_Date"}, {"Region_Raw", "Region"}, {"Qty_Text", "Quantity"}, {"Unit_Price_INR", "Unit_Price"}}),
+				#"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Order_ID", type text}, {"Order_Date", type date}, {"Region", type text}, {"Category_Name", type text}, {"Product", type text}, {"Quantity", Int64.Type}, {"Unit_Price", type number}, {"Profit_INR", type number}}),
+				#"Replaced Nulls" = Table.ReplaceValue(#"Changed Type",null,0,Replacer.ReplaceValue,{"Quantity", "Profit_INR"}),
+				#"Added Total Revenue" = Table.AddColumn(#"Replaced Nulls", "Total_Revenue", each [Quantity] * [Unit_Price], type number)
+			in
+				#"Added Total Revenue"

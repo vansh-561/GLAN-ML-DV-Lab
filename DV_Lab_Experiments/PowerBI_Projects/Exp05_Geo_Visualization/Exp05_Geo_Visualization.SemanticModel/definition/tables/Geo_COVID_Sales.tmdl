@@ -1,0 +1,65 @@
+table Geo_COVID_Sales
+	lineageTag: 80281ef8-6e67-96b1-ee79-25b95127357e
+
+	column Country
+		dataType: string
+		dataCategory: Country
+		lineageTag: 8ef358c0-f55b-9362-ea8b-175d792e8d44
+		summarizeBy: none
+		sourceColumn: Country
+
+	column State
+		dataType: string
+		dataCategory: StateOrProvince
+		lineageTag: 02e51aa4-ae6c-8591-75d5-9ce505a04999
+		summarizeBy: none
+		sourceColumn: State
+
+	column City
+		dataType: string
+		dataCategory: City
+		lineageTag: 31d95d76-5d32-aa3f-a4c6-2d5084fe7e57
+		summarizeBy: none
+		sourceColumn: City
+
+	column Latitude
+		dataType: double
+		dataCategory: Latitude
+		lineageTag: d951a61b-07fa-5535-d4f7-42ceb9b711b7
+		summarizeBy: none
+		sourceColumn: Latitude
+
+	column Longitude
+		dataType: double
+		dataCategory: Longitude
+		lineageTag: 59a696ef-b24c-c66e-71eb-3e868b2f397b
+		summarizeBy: none
+		sourceColumn: Longitude
+
+	column Regional_Sales
+		dataType: double
+		lineageTag: 4549d930-be1d-09f3-2484-7854365bc8da
+		summarizeBy: sum
+		sourceColumn: Regional_Sales
+
+	column Profit
+		dataType: double
+		lineageTag: 3cdc54c3-4910-5c3f-228f-8d8b474e2db3
+		summarizeBy: sum
+		sourceColumn: Profit
+
+	column Active_Cases
+		dataType: int64
+		lineageTag: 556b3a6e-29ed-235b-3a7e-f8c175c675f2
+		summarizeBy: sum
+		sourceColumn: Active_Cases
+
+	partition Geo_COVID_Sales_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp05_Geo_COVID_Sales.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Country", type text}, {"State", type text}, {"City", type text}, {"Latitude", type number}, {"Longitude", type number}, {"Regional_Sales", type number}, {"Profit", type number}, {"Active_Cases", Int64.Type}})
+			in
+				#"Changed Type"

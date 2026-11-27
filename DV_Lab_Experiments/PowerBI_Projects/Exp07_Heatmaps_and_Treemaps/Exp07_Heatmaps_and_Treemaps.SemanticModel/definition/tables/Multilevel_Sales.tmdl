@@ -1,0 +1,48 @@
+table Multilevel_Sales
+	lineageTag: c21660dd-51bf-cfca-0cbd-7ff4c4fa0f5b
+
+	column Category
+		dataType: string
+		lineageTag: 29f779be-90f4-6707-bb4a-1845296869b9
+		summarizeBy: none
+		sourceColumn: Category
+
+	column Sub_Category
+		dataType: string
+		lineageTag: 437991b4-3d11-0bd9-242d-411b6f9e258b
+		summarizeBy: none
+		sourceColumn: Sub_Category
+
+	column Region
+		dataType: string
+		lineageTag: bba2a428-c0f0-b02a-f32a-0a1f65808d9c
+		summarizeBy: none
+		sourceColumn: Region
+
+	column Sales
+		dataType: double
+		lineageTag: 7da9f8be-3d89-6fdd-0a9c-e8668bde3dc3
+		summarizeBy: sum
+		sourceColumn: Sales
+
+	column Profit
+		dataType: double
+		lineageTag: 9fa80e56-06dd-580e-7456-0a8e75f8a022
+		summarizeBy: sum
+		sourceColumn: Profit
+
+	column Quantity
+		dataType: int64
+		lineageTag: bae5de83-9bbe-6368-d92d-4fd599452225
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+	partition Multilevel_Sales_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp07_Multilevel_Sales.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Category", type text}, {"Sub_Category", type text}, {"Region", type text}, {"Sales", type number}, {"Profit", type number}, {"Quantity", Int64.Type}})
+			in
+				#"Changed Type"

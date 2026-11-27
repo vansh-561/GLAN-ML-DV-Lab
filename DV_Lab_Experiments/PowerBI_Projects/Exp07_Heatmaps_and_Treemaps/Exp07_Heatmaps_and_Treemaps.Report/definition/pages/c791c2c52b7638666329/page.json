@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "c791c2c52b7638666329",
+  "displayName": "Exp07_Heatmaps_and_Treemaps Report",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

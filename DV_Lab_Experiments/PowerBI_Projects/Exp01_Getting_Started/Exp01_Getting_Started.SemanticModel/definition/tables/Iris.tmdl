@@ -1,0 +1,42 @@
+table Iris
+	lineageTag: d25c7286-a46d-bb6e-eecc-5cfddacd5818
+
+	column Sepal_Length
+		dataType: double
+		lineageTag: e810e204-a735-0238-f3cf-b51d2ee4209f
+		summarizeBy: sum
+		sourceColumn: Sepal_Length
+
+	column Sepal_Width
+		dataType: double
+		lineageTag: d10a4933-c86e-33c2-6d95-2fe65c47ec7a
+		summarizeBy: sum
+		sourceColumn: Sepal_Width
+
+	column Petal_Length
+		dataType: double
+		lineageTag: 4ba7fd84-1a99-6ba4-3a6f-88fca314accc
+		summarizeBy: sum
+		sourceColumn: Petal_Length
+
+	column Petal_Width
+		dataType: double
+		lineageTag: 81e6551a-b522-ac67-5245-887bc11869f1
+		summarizeBy: sum
+		sourceColumn: Petal_Width
+
+	column Species
+		dataType: string
+		lineageTag: 935b9c5a-9b31-0bef-2697-01b64545bb34
+		summarizeBy: none
+		sourceColumn: Species
+
+	partition Iris_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp01_Iris.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Sepal_Length", type number}, {"Sepal_Width", type number}, {"Petal_Length", type number}, {"Petal_Width", type number}, {"Species", type text}})
+			in
+				#"Changed Type"

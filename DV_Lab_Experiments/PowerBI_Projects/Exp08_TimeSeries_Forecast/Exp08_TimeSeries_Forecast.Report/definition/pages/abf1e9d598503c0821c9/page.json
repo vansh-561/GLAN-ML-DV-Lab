@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "abf1e9d598503c0821c9",
+  "displayName": "Exp08_TimeSeries_Forecast Report",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

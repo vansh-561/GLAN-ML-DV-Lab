@@ -1,0 +1,13 @@
+Category,Sub_Category,Region,Sales,Profit,Quantity
+Furniture,Desks,East,691900.0,78430.0,32
+Furniture,Desks,North,479600.0,47960.0,23
+Furniture,Desks,South,652300.0,52866.0,33
+Furniture,Desks,West,642400.0,63360.0,31
+Office Supplies,Storage,East,131400.0,21798.0,32
+Office Supplies,Storage,North,72675.0,11668.5,18
+Office Supplies,Storage,South,108000.0,17010.0,27
+Office Supplies,Storage,West,107550.0,18216.0,26
+Technology,Laptops,East,1518750.0,282510.0,37
+Technology,Laptops,North,1302750.0,254520.0,31
+Technology,Laptops,South,1026000.0,205830.0,24
+Technology,Laptops,West,1188000.0,235080.0,28

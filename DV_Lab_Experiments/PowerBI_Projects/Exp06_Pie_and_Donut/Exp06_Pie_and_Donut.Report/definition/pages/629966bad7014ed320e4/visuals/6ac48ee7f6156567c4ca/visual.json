@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "6ac48ee7f6156567c4ca",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 0,
+    "height": 540,
+    "width": 600,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Olympic_Medals"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "Olympic_Medals.Country",
+              "nativeQueryRef": "Country",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Olympic_Medals"
+                        }
+                      },
+                      "Property": "Total_Medals"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Olympic_Medals.Total_Medals)",
+              "nativeQueryRef": "Total_Medals",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

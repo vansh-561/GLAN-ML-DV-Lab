@@ -1,0 +1,56 @@
+table Olympic_Medals
+	lineageTag: 8a837978-9632-369d-b9b5-0b50ed4a11fa
+
+	measure 'Total Gold' = SUM(Olympic_Medals[Gold])
+		formatString: #,##0
+		lineageTag: 7bfbcd2d-d9a2-8de8-a2c5-236a098f2af5
+
+	measure 'Total Medals Sum' = SUM(Olympic_Medals[Total_Medals])
+		formatString: #,##0
+		lineageTag: b3d33c72-d8cc-63a8-0355-88b79614bb4c
+
+	column Country
+		dataType: string
+		lineageTag: 40b54cb4-8bad-48b1-03ac-b3c2e0cd3d92
+		summarizeBy: none
+		sourceColumn: Country
+
+	column Continent
+		dataType: string
+		lineageTag: 062c2cb2-b245-21c9-b785-e558284a60ea
+		summarizeBy: none
+		sourceColumn: Continent
+
+	column Gold
+		dataType: int64
+		lineageTag: c69f44dd-7447-860b-8dfd-2b9145629bdb
+		summarizeBy: sum
+		sourceColumn: Gold
+
+	column Silver
+		dataType: int64
+		lineageTag: ff5f5e82-1db5-2c38-6cc5-36e2630623c2
+		summarizeBy: sum
+		sourceColumn: Silver
+
+	column Bronze
+		dataType: int64
+		lineageTag: c1da506a-cac4-985a-f4a1-0ec6dfa01f64
+		summarizeBy: sum
+		sourceColumn: Bronze
+
+	column Total_Medals
+		dataType: int64
+		lineageTag: c286f419-22d5-7196-0dcd-5d705e573607
+		summarizeBy: sum
+		sourceColumn: Total_Medals
+
+	partition Olympic_Medals_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp06_Olympic_Medals.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Country", type text}, {"Continent", type text}, {"Gold", Int64.Type}, {"Silver", Int64.Type}, {"Bronze", Int64.Type}, {"Total_Medals", Int64.Type}})
+			in
+				#"Changed Type"

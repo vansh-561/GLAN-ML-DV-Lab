@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook original-version='18.1' source-build='2026.3.0' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Exp06_Olympic_Medals' inline='true' name='federated.exp06_olympic' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Exp06_Olympic_Medals' name='textscan.federated.exp06_olympic'>
+            <connection class='textscan' directory='d:/GLAN ML &amp; DV Lab/DV_Lab_Experiments/Datasets' filename='Exp06_Olympic_Medals.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.federated.exp06_olympic' name='Exp06_Olympic_Medals.csv' table='[Exp06_Olympic_Medals.csv#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='Country' ordinal='0' />
+            <column datatype='string' name='Continent' ordinal='1' />
+            <column datatype='integer' name='Gold' ordinal='2' />
+            <column datatype='integer' name='Silver' ordinal='3' />
+            <column datatype='integer' name='Bronze' ordinal='4' />
+            <column datatype='integer' name='Total_Medals' ordinal='5' />
+          </columns>
+        </relation>
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>Country</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[Country]</local-name>
+          <parent-name>[Exp06_Olympic_Medals.csv]</parent-name>
+          <remote-alias>Country</remote-alias>
+          <ordinal>0</ordinal>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Continent</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[Continent]</local-name>
+          <parent-name>[Exp06_Olympic_Medals.csv]</parent-name>
+          <remote-alias>Continent</remote-alias>
+          <ordinal>1</ordinal>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Gold</remote-name>
+          <remote-type>20</remote-type>
+          <local-name>[Gold]</local-name>
+          <parent-name>[Exp06_Olympic_Medals.csv]</parent-name>
+          <remote-alias>Gold</remote-alias>
+          <ordinal>2</ordinal>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Silver</remote-name>
+          <remote-type>20</remote-type>
+          <local-name>[Silver]</local-name>
+          <parent-name>[Exp06_Olympic_Medals.csv]</parent-name>
+          <remote-alias>Silver</remote-alias>
+          <ordinal>3</ordinal>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Bronze</remote-name>
+          <remote-type>20</remote-type>
+          <local-name>[Bronze]</local-name>
+          <parent-name>[Exp06_Olympic_Medals.csv]</parent-name>
+          <remote-alias>Bronze</remote-alias>
+          <ordinal>4</ordinal>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Total_Medals</remote-name>
+          <remote-type>20</remote-type>
+          <local-name>[Total_Medals]</local-name>
+          <parent-name>[Exp06_Olympic_Medals.csv]</parent-name>
+          <remote-alias>Total_Medals</remote-alias>
+          <ordinal>5</ordinal>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[Country]' role='dimension' type='nominal' />
+      <column datatype='string' name='[Continent]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Gold]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Silver]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Bronze]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Total_Medals]' role='measure' type='quantitative' />
+
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+    </datasource>
+  </datasources>
+
+  <worksheets>
+    <worksheet name='Total Medal Pie'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#0f766e'>Exp 6A: Olympic Total Medal Share by Country (Pie Chart)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Exp06_Olympic_Medals' name='federated.exp06_olympic' />
+          </datasources>
+          <datasource-dependencies datasource='federated.exp06_olympic'>
+            <column datatype='string' name='[Country]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Total_Medals]' role='measure' type='quantitative' />
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Total_Medals]' derivation='Sum' name='[sum:Total_Medals:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+          <encodings>
+            <color column='[federated.exp06_olympic].[none:Country:nk]' />
+            <wedge-size column='[federated.exp06_olympic].[sum:Total_Medals:qk]' />
+            <text column='[federated.exp06_olympic].[none:Country:nk]' />
+          </encodings>
+          </pane>
+        </panes>
+        <rows></rows>
+        <cols></cols>
+        
+      </table>
+    </worksheet>
+    <worksheet name='Gold Medals by Country'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#0f766e'>Exp 6B: Gold Medal Proportion by Country</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Exp06_Olympic_Medals' name='federated.exp06_olympic' />
+          </datasources>
+          <datasource-dependencies datasource='federated.exp06_olympic'>
+            <column datatype='string' name='[Country]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Gold]' role='measure' type='quantitative' />
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Gold]' derivation='Sum' name='[sum:Gold:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+          <encodings>
+            <color column='[federated.exp06_olympic].[none:Country:nk]' />
+            <wedge-size column='[federated.exp06_olympic].[sum:Gold:qk]' />
+            <text column='[federated.exp06_olympic].[sum:Gold:qk]' />
+          </encodings>
+          </pane>
+        </panes>
+        <rows></rows>
+        <cols></cols>
+        
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Exp 6 Medal Proportions'>
+      <style />
+      <size maxheight='768' maxwidth='1366' minheight='768' minwidth='1366' />
+      <zones>
+        <zone h='100000' id='2' name='Total Medal Pie' w='50000' x='0' y='0' />
+        <zone h='100000' id='3' name='Gold Medals by Country' w='50000' x='50000' y='0' />
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class='worksheet' name='Total Medal Pie'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'><card type='columns' /></strip>
+          <strip size='2147483647'><card type='rows' /></strip>
+          <strip size='31'><card type='title' /></strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Gold Medals by Country'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'><card type='columns' /></strip>
+          <strip size='2147483647'><card type='rows' /></strip>
+          <strip size='31'><card type='title' /></strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='dashboard' maximized='true' name='Exp 6 Medal Proportions'>
+      <viewpoints />
+      <active id='-1' />
+    </window>
+  </windows>
+</workbook>

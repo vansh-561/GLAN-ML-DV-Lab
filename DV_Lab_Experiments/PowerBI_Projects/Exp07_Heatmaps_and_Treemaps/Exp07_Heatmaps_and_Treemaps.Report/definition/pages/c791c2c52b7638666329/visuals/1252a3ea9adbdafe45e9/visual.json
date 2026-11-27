@@ -1,0 +1,82 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "1252a3ea9adbdafe45e9",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 0,
+    "height": 670,
+    "width": 540,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Correlation_Matrix"
+                    }
+                  },
+                  "Property": "Feature_X"
+                }
+              },
+              "queryRef": "Correlation_Matrix.Feature_X",
+              "nativeQueryRef": "Feature_X",
+              "active": true
+            }
+          ]
+        },
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Correlation_Matrix"
+                    }
+                  },
+                  "Property": "Feature_Y"
+                }
+              },
+              "queryRef": "Correlation_Matrix.Feature_Y",
+              "nativeQueryRef": "Feature_Y",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Correlation_Matrix"
+                        }
+                      },
+                      "Property": "Correlation"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(Correlation_Matrix.Correlation)",
+              "nativeQueryRef": "Correlation",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

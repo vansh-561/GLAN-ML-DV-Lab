@@ -1,0 +1,144 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "8e70fc658b9bfb1b8b0e",
+  "position": {
+    "x": 20,
+    "y": 370,
+    "z": 2000,
+    "height": 330,
+    "width": 1230,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cleaned_Retail"
+                    }
+                  },
+                  "Property": "Order_ID"
+                }
+              },
+              "queryRef": "Cleaned_Retail.Order_ID",
+              "nativeQueryRef": "Order_ID",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cleaned_Retail"
+                    }
+                  },
+                  "Property": "Order_Date"
+                }
+              },
+              "queryRef": "Cleaned_Retail.Order_Date",
+              "nativeQueryRef": "Order_Date",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cleaned_Retail"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "Cleaned_Retail.Region",
+              "nativeQueryRef": "Region",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cleaned_Retail"
+                    }
+                  },
+                  "Property": "Product"
+                }
+              },
+              "queryRef": "Cleaned_Retail.Product",
+              "nativeQueryRef": "Product",
+              "active": true
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Cleaned_Retail"
+                        }
+                      },
+                      "Property": "Quantity"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Cleaned_Retail.Quantity)",
+              "nativeQueryRef": "Quantity",
+              "active": true
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Cleaned_Retail"
+                        }
+                      },
+                      "Property": "Total_Revenue"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Cleaned_Retail.Total_Revenue)",
+              "nativeQueryRef": "Total_Revenue",
+              "active": true
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Cleaned_Retail"
+                        }
+                      },
+                      "Property": "Profit_INR"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Cleaned_Retail.Profit_INR)",
+              "nativeQueryRef": "Profit_INR",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

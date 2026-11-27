@@ -1,0 +1,61 @@
+Order_ID,Order_Date,Region,State,City,Category,Sub_Category,Quantity,Discount,Sales,Profit
+ORD-1001,2025-01-05,North,Uttar Pradesh,Noida,Technology,Laptops,7,0.15,267750.0,42840.0
+ORD-1002,2025-01-14,South,Tamil Nadu,Chennai,Furniture,Desks,8,0.0,176000.0,21120.0
+ORD-1003,2025-01-23,East,West Bengal,Kolkata,Office Supplies,Storage,5,0.1,20250.0,3240.0
+ORD-1004,2025-02-01,West,Maharashtra,Mumbai,Technology,Laptops,3,0.1,121500.0,21870.0
+ORD-1005,2025-02-10,North,Delhi,New Delhi,Furniture,Desks,8,0.0,176000.0,21120.0
+ORD-1006,2025-02-19,South,Kerala,Kochi,Office Supplies,Storage,4,0.15,15300.0,2142.0
+ORD-1007,2025-02-28,East,West Bengal,Kolkata,Technology,Laptops,8,0.1,324000.0,58320.0
+ORD-1008,2025-03-09,West,Gujarat,Ahmedabad,Furniture,Desks,6,0.0,132000.0,15840.0
+ORD-1009,2025-03-18,North,Punjab,Chandigarh,Office Supplies,Storage,2,0.15,7650.0,1071.0
+ORD-1010,2025-03-27,South,Karnataka,Bengaluru,Technology,Laptops,6,0.05,256500.0,51300.0
+ORD-1011,2025-04-05,East,West Bengal,Kolkata,Furniture,Desks,5,0.0,110000.0,13200.0
+ORD-1012,2025-04-14,West,Rajasthan,Jaipur,Office Supplies,Storage,6,0.0,27000.0,5400.0
+ORD-1013,2025-04-24,North,Uttar Pradesh,Noida,Technology,Laptops,9,0.0,405000.0,89100.0
+ORD-1014,2025-05-03,South,Tamil Nadu,Chennai,Furniture,Desks,3,0.15,56100.0,3366.0
+ORD-1015,2025-05-12,East,West Bengal,Kolkata,Office Supplies,Storage,7,0.15,26775.0,3748.5
+ORD-1016,2025-05-21,West,Maharashtra,Mumbai,Technology,Laptops,9,0.1,364500.0,65610.0
+ORD-1017,2025-05-30,North,Delhi,New Delhi,Furniture,Desks,5,0.1,99000.0,7920.0
+ORD-1018,2025-06-08,South,Kerala,Kochi,Office Supplies,Storage,7,0.0,31500.0,6300.0
+ORD-1019,2025-06-17,East,West Bengal,Kolkata,Technology,Laptops,9,0.1,364500.0,65610.0
+ORD-1020,2025-06-26,West,Gujarat,Ahmedabad,Furniture,Desks,2,0.15,37400.0,2244.0
+ORD-1021,2025-07-05,North,Punjab,Chandigarh,Office Supplies,Storage,9,0.15,34425.0,4819.5
+ORD-1022,2025-07-14,South,Karnataka,Bengaluru,Technology,Laptops,2,0.05,85500.0,17100.0
+ORD-1023,2025-07-23,East,West Bengal,Kolkata,Furniture,Desks,9,0.05,188100.0,18810.0
+ORD-1024,2025-08-01,West,Rajasthan,Jaipur,Office Supplies,Storage,5,0.05,21375.0,3847.5
+ORD-1025,2025-08-11,North,Uttar Pradesh,Noida,Technology,Laptops,4,0.15,153000.0,24480.0
+ORD-1026,2025-08-20,South,Tamil Nadu,Chennai,Furniture,Desks,7,0.15,130900.0,7854.0
+ORD-1027,2025-08-29,East,West Bengal,Kolkata,Office Supplies,Storage,8,0.1,32400.0,5184.0
+ORD-1028,2025-09-07,West,Maharashtra,Mumbai,Technology,Laptops,3,0.05,128250.0,25650.0
+ORD-1029,2025-09-16,North,Delhi,New Delhi,Furniture,Desks,1,0.15,18700.0,1122.0
+ORD-1030,2025-09-25,South,Kerala,Kochi,Office Supplies,Storage,2,0.15,7650.0,1071.0
+ORD-1031,2025-10-04,East,West Bengal,Kolkata,Technology,Laptops,4,0.05,171000.0,34200.0
+ORD-1032,2025-10-13,West,Gujarat,Ahmedabad,Furniture,Desks,6,0.05,125400.0,12540.0
+ORD-1033,2025-10-22,North,Punjab,Chandigarh,Office Supplies,Storage,4,0.05,17100.0,3078.0
+ORD-1034,2025-10-31,South,Karnataka,Bengaluru,Technology,Laptops,2,0.05,85500.0,17100.0
+ORD-1035,2025-11-09,East,West Bengal,Kolkata,Furniture,Desks,2,0.05,41800.0,4180.0
+ORD-1036,2025-11-18,West,Rajasthan,Jaipur,Office Supplies,Storage,4,0.05,17100.0,3078.0
+ORD-1037,2025-11-28,North,Uttar Pradesh,Noida,Technology,Laptops,8,0.05,342000.0,68400.0
+ORD-1038,2025-12-07,South,Tamil Nadu,Chennai,Furniture,Desks,7,0.15,130900.0,7854.0
+ORD-1039,2025-12-16,East,West Bengal,Kolkata,Office Supplies,Storage,9,0.05,38475.0,6925.5
+ORD-1040,2025-12-25,West,Maharashtra,Mumbai,Technology,Laptops,8,0.0,360000.0,79200.0
+ORD-1041,2026-01-03,North,Delhi,New Delhi,Furniture,Desks,2,0.1,39600.0,3168.0
+ORD-1042,2026-01-12,South,Kerala,Kochi,Office Supplies,Storage,5,0.15,19125.0,2677.5
+ORD-1043,2026-01-21,East,West Bengal,Kolkata,Technology,Laptops,9,0.15,344250.0,55080.0
+ORD-1044,2026-01-30,West,Gujarat,Ahmedabad,Furniture,Desks,9,0.0,198000.0,23760.0
+ORD-1045,2026-02-08,North,Punjab,Chandigarh,Office Supplies,Storage,1,0.0,4500.0,900.0
+ORD-1046,2026-02-17,South,Karnataka,Bengaluru,Technology,Laptops,7,0.0,315000.0,69300.0
+ORD-1047,2026-02-26,East,West Bengal,Kolkata,Furniture,Desks,8,0.0,176000.0,21120.0
+ORD-1048,2026-03-07,West,Rajasthan,Jaipur,Office Supplies,Storage,8,0.15,30600.0,4284.0
+ORD-1049,2026-03-17,North,Uttar Pradesh,Noida,Technology,Laptops,3,0.0,135000.0,29700.0
+ORD-1050,2026-03-26,South,Tamil Nadu,Chennai,Furniture,Desks,8,0.1,158400.0,12672.0
+ORD-1051,2026-04-04,East,West Bengal,Kolkata,Office Supplies,Storage,3,0.0,13500.0,2700.0
+ORD-1052,2026-04-13,West,Maharashtra,Mumbai,Technology,Laptops,5,0.05,213750.0,42750.0
+ORD-1053,2026-04-22,North,Delhi,New Delhi,Furniture,Desks,7,0.05,146300.0,14630.0
+ORD-1054,2026-05-01,South,Kerala,Kochi,Office Supplies,Storage,9,0.15,34425.0,4819.5
+ORD-1055,2026-05-10,East,West Bengal,Kolkata,Technology,Laptops,7,0.0,315000.0,69300.0
+ORD-1056,2026-05-19,West,Gujarat,Ahmedabad,Furniture,Desks,8,0.15,149600.0,8976.0
+ORD-1057,2026-05-28,North,Punjab,Chandigarh,Office Supplies,Storage,2,0.0,9000.0,1800.0
+ORD-1058,2026-06-06,South,Karnataka,Bengaluru,Technology,Laptops,7,0.1,283500.0,51030.0
+ORD-1059,2026-06-15,East,West Bengal,Kolkata,Furniture,Desks,8,0.0,176000.0,21120.0
+ORD-1060,2026-06-25,West,Rajasthan,Jaipur,Office Supplies,Storage,3,0.15,11475.0,1606.5

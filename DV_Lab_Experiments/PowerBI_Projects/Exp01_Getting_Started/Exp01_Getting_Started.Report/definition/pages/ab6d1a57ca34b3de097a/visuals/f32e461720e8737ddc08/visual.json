@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "f32e461720e8737ddc08",
+  "position": {
+    "x": 650,
+    "y": 360,
+    "z": 3000,
+    "height": 340,
+    "width": 600,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Iris"
+                    }
+                  },
+                  "Property": "Species"
+                }
+              },
+              "queryRef": "Iris.Species",
+              "nativeQueryRef": "Species",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Iris"
+                        }
+                      },
+                      "Property": "Petal_Length"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(Iris.Petal_Length)",
+              "nativeQueryRef": "Petal_Length",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

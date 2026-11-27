@@ -1,0 +1,13 @@
+Country,State,City,Latitude,Longitude,Regional_Sales,Profit,Active_Cases
+India,Maharashtra,Mumbai,19.076,72.8777,1450000,320000,4800
+India,Karnataka,Bengaluru,12.9716,77.5946,1180000,265000,3100
+India,Delhi,New Delhi,28.6139,77.209,980000,210000,2950
+India,Tamil Nadu,Chennai,13.0827,80.2707,910000,195000,2700
+India,Uttar Pradesh,Noida,28.5355,77.391,860000,175000,3400
+India,Gujarat,Ahmedabad,23.0225,72.5714,790000,168000,1950
+India,West Bengal,Kolkata,22.5726,88.3639,740000,152000,2400
+India,Rajasthan,Jaipur,26.9124,75.7873,620000,128000,1650
+India,Kerala,Kochi,9.9312,76.2673,590000,134000,2850
+India,Telangana,Hyderabad,17.385,78.4867,880000,190000,2100
+India,Punjab,Chandigarh,30.7333,76.7794,490000,102000,1320
+India,Madhya Pradesh,Bhopal,23.2599,77.4126,450000,91000,1250

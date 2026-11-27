@@ -1,0 +1,30 @@
+table Correlation_Matrix
+	lineageTag: 31dc89d0-90e8-69e3-feaa-07fc194ab528
+
+	column Feature_X
+		dataType: string
+		lineageTag: fd1f8322-56a2-ac63-7824-91ec12fe421d
+		summarizeBy: none
+		sourceColumn: Feature_X
+
+	column Feature_Y
+		dataType: string
+		lineageTag: 808c7cef-5a69-41f3-9a5e-5c9b90eb625e
+		summarizeBy: none
+		sourceColumn: Feature_Y
+
+	column Correlation
+		dataType: double
+		lineageTag: 99d82706-5f8b-92ea-e0b2-c4cfb4bc9257
+		summarizeBy: sum
+		sourceColumn: Correlation
+
+	partition Correlation_Matrix_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp07_Correlation_Matrix.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Feature_X", type text}, {"Feature_Y", type text}, {"Correlation", type number}})
+			in
+				#"Changed Type"

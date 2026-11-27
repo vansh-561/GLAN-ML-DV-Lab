@@ -1,0 +1,12 @@
+Order_ID,Order_Date_Txt,Region_Raw,Category_Name,Product,Qty_Text,Unit_Price_INR,Profit_INR,Record_Status
+ORD-201,2026-01-05,  North ,Technology,Laptop,2,45000,8000,Active
+ORD-202,2026-01-08,south,Furniture,Office Chair,5,12000,1800,Active
+ORD-203,2026-01-12,East  ,Office Supplies,Paper Box,,1500,,Active
+ORD-204,2026-01-15,West,Technology,Monitor,3,18000,3500,Active
+,,,,,,,,
+ORD-205,2026-01-20,  north  ,Furniture,Desk,1,22000,2800,Active
+ORD-206,2026-01-24,SOUTH,Office Supplies,Binders,10,800,220,Active
+ORD-207,2026-02-02,East,Technology,Mouse,8,1200,,Active
+ORD-208,2026-02-06, west,Furniture,Bookcase,2,9500,1400,Active
+ORD-209,2026-02-11,North,Technology,Tablet,,28000,4200,Active
+ORD-210,2026-02-15,East,Office Supplies,Storage,4,4500,950,Active

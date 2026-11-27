@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "c891b6a01c4739d48637",
+  "position": {
+    "x": 20,
+    "y": 20,
+    "z": 0,
+    "height": 340,
+    "width": 1230,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TimeSeries_Sales"
+                    }
+                  },
+                  "Property": "Month_Date"
+                }
+              },
+              "queryRef": "TimeSeries_Sales.Month_Date",
+              "nativeQueryRef": "Month_Date",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TimeSeries_Sales"
+                        }
+                      },
+                      "Property": "Monthly_Sales"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(TimeSeries_Sales.Monthly_Sales)",
+              "nativeQueryRef": "Monthly_Sales",
+              "active": true
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TimeSeries_Sales"
+                    }
+                  },
+                  "Property": "3-Month Moving Avg"
+                }
+              },
+              "queryRef": "TimeSeries_Sales.3-Month Moving Avg",
+              "nativeQueryRef": "3-Month Moving Avg",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

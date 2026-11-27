@@ -1,0 +1,48 @@
+table Stock_Sales
+	lineageTag: 0d56cbfb-f1ae-120d-90c5-855c3d56ca37
+
+	column Date
+		dataType: dateTime
+		lineageTag: e130d84f-c454-631e-0fdb-33d37377d492
+		summarizeBy: none
+		sourceColumn: Date
+
+	column Company
+		dataType: string
+		lineageTag: dfbd262d-8120-9b52-a3b8-db3976fe367e
+		summarizeBy: none
+		sourceColumn: Company
+
+	column Sector
+		dataType: string
+		lineageTag: 668fe5fb-6d66-77e9-58e0-aad22d7e7275
+		summarizeBy: none
+		sourceColumn: Sector
+
+	column Close_Price
+		dataType: double
+		lineageTag: 071f6539-961c-4eef-e82b-4115b91ae885
+		summarizeBy: sum
+		sourceColumn: Close_Price
+
+	column Volume
+		dataType: int64
+		lineageTag: 47032b37-e3b1-e104-9eb5-2229b34a1d54
+		summarizeBy: sum
+		sourceColumn: Volume
+
+	column Quarterly_Revenue
+		dataType: double
+		lineageTag: 7702b5b7-0b11-73b1-4615-37e964d06671
+		summarizeBy: sum
+		sourceColumn: Quarterly_Revenue
+
+	partition Stock_Sales_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp03_Stock_Sales.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Company", type text}, {"Sector", type text}, {"Close_Price", type number}, {"Volume", Int64.Type}, {"Quarterly_Revenue", type number}})
+			in
+				#"Changed Type"

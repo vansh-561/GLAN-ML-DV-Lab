@@ -1,0 +1,96 @@
+table Retail_Dashboard
+	lineageTag: d1654fb8-50d4-dfb8-47a8-e535e3b68872
+
+	measure 'Total Sales' = SUM(Retail_Dashboard[Sales])
+		formatString: #,##0
+		lineageTag: 657d71e1-b22c-9c74-9ea3-a0d30199f8a2
+
+	measure 'Total Profit' = SUM(Retail_Dashboard[Profit])
+		formatString: #,##0
+		lineageTag: 107352d6-bb9f-46a2-5751-05b0ecc2e4f4
+
+	measure 'Margin %' = DIVIDE([Total Profit], [Total Sales], 0)
+		formatString: 0.0%
+		lineageTag: 32a5a497-ecbb-bbd4-98a7-2192be680a35
+
+	column Order_ID
+		dataType: string
+		lineageTag: 4a6fec7f-9ec1-980b-19a8-059fe98a6e64
+		summarizeBy: none
+		sourceColumn: Order_ID
+
+	column Order_Date
+		dataType: dateTime
+		lineageTag: b6784a8f-df7d-d973-19f3-79143104e457
+		summarizeBy: none
+		sourceColumn: Order_Date
+
+	column Region
+		dataType: string
+		lineageTag: a64851f4-a90c-104f-1857-a0c315ea0bd4
+		summarizeBy: none
+		sourceColumn: Region
+
+	column State
+		dataType: string
+		lineageTag: da5f6fca-43c2-355b-279c-395f67bfbae3
+		summarizeBy: none
+		sourceColumn: State
+
+	column City
+		dataType: string
+		lineageTag: 34ff3365-2a1d-a960-75e2-c3e3e3e2a257
+		summarizeBy: none
+		sourceColumn: City
+
+	column Category
+		dataType: string
+		lineageTag: 46f2ac14-aa91-baaf-a895-20327b404b2d
+		summarizeBy: none
+		sourceColumn: Category
+
+	column Sub_Category
+		dataType: string
+		lineageTag: 5a7893b0-eac4-f37d-4bc1-fe0916dd3f5d
+		summarizeBy: none
+		sourceColumn: Sub_Category
+
+	column Quantity
+		dataType: int64
+		lineageTag: 7278df81-e0be-75dd-e441-53fef8fc64ee
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+	column Discount
+		dataType: double
+		lineageTag: 27585e4d-6352-a37e-133b-928b731c98e8
+		summarizeBy: sum
+		sourceColumn: Discount
+
+	column Sales
+		dataType: double
+		lineageTag: ae963e54-019f-6b91-9b50-9b65b67a3c36
+		summarizeBy: sum
+		sourceColumn: Sales
+
+	column Profit
+		dataType: double
+		lineageTag: d6ff7a01-10b2-8e87-f262-f2c9ccb5f85b
+		summarizeBy: sum
+		sourceColumn: Profit
+
+	column Segment
+		dataType: string
+		lineageTag: b234d10a-7e3c-e57a-676a-25816c2389f2
+		summarizeBy: none
+		sourceColumn: Segment
+
+	partition Retail_Dashboard_Partition = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents("d:\GLAN ML & DV Lab\DV_Lab_Experiments\Datasets\Exp04_Retail_Dashboard.csv"),[Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Order_ID", type text}, {"Order_Date", type date}, {"Region", type text}, {"State", type text}, {"City", type text}, {"Category", type text}, {"Sub_Category", type text}, {"Quantity", Int64.Type}, {"Discount", type number}, {"Sales", type number}, {"Profit", type number}, {"Segment", type text}})
+			in
+				#"Changed Type"

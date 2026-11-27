@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook original-version='18.1' source-build='2026.3.0' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Exp05_Geo_COVID_Sales' inline='true' name='federated.exp05_geo' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Exp05_Geo_COVID_Sales' name='textscan.federated.exp05_geo'>
+            <connection class='textscan' directory='d:/GLAN ML &amp; DV Lab/DV_Lab_Experiments/Datasets' filename='Exp05_Geo_COVID_Sales.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.federated.exp05_geo' name='Exp05_Geo_COVID_Sales.csv' table='[Exp05_Geo_COVID_Sales.csv#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='Country' ordinal='0' />
+            <column datatype='string' name='State' ordinal='1' />
+            <column datatype='string' name='City' ordinal='2' />
+            <column datatype='real' name='Latitude' ordinal='3' />
+            <column datatype='real' name='Longitude' ordinal='4' />
+            <column datatype='real' name='Regional_Sales' ordinal='5' />
+            <column datatype='real' name='Profit' ordinal='6' />
+            <column datatype='integer' name='Active_Cases' ordinal='7' />
+          </columns>
+        </relation>
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>Country</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[Country]</local-name>
+          <parent-name>[Exp05_Geo_COVID_Sales.csv]</parent-name>
+          <remote-alias>Country</remote-alias>
+          <ordinal>0</ordinal>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>State</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[State]</local-name>
+          <parent-name>[Exp05_Geo_COVID_Sales.csv]</parent-name>
+          <remote-alias>State</remote-alias>
+          <ordinal>1</ordinal>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>City</remote-name>
+          <remote-type>129</remote-type>
+          <local-name>[City]</local-name>
+          <parent-name>[Exp05_Geo_COVID_Sales.csv]</parent-name>
+          <remote-alias>City</remote-alias>
+          <ordinal>2</ordinal>
+          <local-type>string</local-type>
+          <aggregation>Count</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Latitude</remote-name>
+          <remote-type>5</remote-type>
+          <local-name>[Latitude]</local-name>
+          <parent-name>[Exp05_Geo_COVID_Sales.csv]</parent-name>
+          <remote-alias>Latitude</remote-alias>
+          <ordinal>3</ordinal>
+          <local-type>real</local-type>
+          <aggregation>Sum</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Longitude</remote-name>
+          <remote-type>5</remote-type>
+          <local-name>[Longitude]</local-name>
+          <parent-name>[Exp05_Geo_COVID_Sales.csv]</parent-name>
+          <remote-alias>Longitude</remote-alias>
+          <ordinal>4</ordinal>
+          <local-type>real</local-type>
+          <aggregation>Sum</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Regional_Sales</remote-name>
+          <remote-type>5</remote-type>
+          <local-name>[Regional_Sales]</local-name>
+          <parent-name>[Exp05_Geo_COVID_Sales.csv]</parent-name>
+          <remote-alias>Regional_Sales</remote-alias>
+          <ordinal>5</ordinal>
+          <local-type>real</local-type>
+          <aggregation>Sum</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Profit</remote-name>
+          <remote-type>5</remote-type>
+          <local-name>[Profit]</local-name>
+          <parent-name>[Exp05_Geo_COVID_Sales.csv]</parent-name>
+          <remote-alias>Profit</remote-alias>
+          <ordinal>6</ordinal>
+          <local-type>real</local-type>
+          <aggregation>Sum</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>Active_Cases</remote-name>
+          <remote-type>20</remote-type>
+          <local-name>[Active_Cases]</local-name>
+          <parent-name>[Exp05_Geo_COVID_Sales.csv]</parent-name>
+          <remote-alias>Active_Cases</remote-alias>
+          <ordinal>7</ordinal>
+          <local-type>integer</local-type>
+          <aggregation>Sum</aggregation>
+          <contains-null>true</contains-null>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[Country]' role='dimension' type='nominal' semantic-role='[Country].[Name]' />
+      <column datatype='string' name='[State]' role='dimension' type='nominal' semantic-role='[State].[Name]' />
+      <column datatype='string' name='[City]' role='dimension' type='nominal' semantic-role='[City].[Name]' />
+      <column datatype='real' name='[Latitude]' role='measure' type='quantitative' semantic-role='[Geographical].[Latitude]' />
+      <column datatype='real' name='[Longitude]' role='measure' type='quantitative' semantic-role='[Geographical].[Longitude]' />
+      <column datatype='real' name='[Regional_Sales]' role='measure' type='quantitative' />
+      <column datatype='real' name='[Profit]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Active_Cases]' role='measure' type='quantitative' />
+
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+    </datasource>
+  </datasources>
+
+  <worksheets>
+    <worksheet name='City Bubble Map'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#0f766e'>Exp 5A: City Symbol Map (Size = Regional Sales, Color = Active Cases)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Exp05_Geo_COVID_Sales' name='federated.exp05_geo' />
+          </datasources>
+          <datasource-dependencies datasource='federated.exp05_geo'>
+            <column datatype='string' name='[Country]' role='dimension' type='nominal' />
+            <column datatype='string' name='[State]' role='dimension' type='nominal' />
+            <column datatype='string' name='[City]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Latitude]' role='measure' type='quantitative' />
+            <column datatype='real' name='[Longitude]' role='measure' type='quantitative' />
+            <column datatype='real' name='[Regional_Sales]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Active_Cases]' role='measure' type='quantitative' />
+            <column-instance column='[City]' derivation='None' name='[none:City:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Latitude]' derivation='Avg' name='[avg:Latitude:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Longitude]' derivation='Avg' name='[avg:Longitude:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Regional_Sales]' derivation='Sum' name='[sum:Regional_Sales:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Active_Cases]' derivation='Sum' name='[sum:Active_Cases:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+          <encodings>
+            <lod column='[federated.exp05_geo].[none:City:nk]' />
+            <size column='[federated.exp05_geo].[sum:Regional_Sales:qk]' />
+            <color column='[federated.exp05_geo].[sum:Active_Cases:qk]' />
+            <text column='[federated.exp05_geo].[none:City:nk]' />
+          </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.exp05_geo].[avg:Latitude:qk]</rows>
+        <cols>[federated.exp05_geo].[avg:Longitude:qk]</cols>
+        
+      </table>
+    </worksheet>
+    <worksheet name='State Sales &amp; Cases'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#0f766e'>Exp 5B: State Sales &amp; Active Cases Comparison</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Exp05_Geo_COVID_Sales' name='federated.exp05_geo' />
+          </datasources>
+          <datasource-dependencies datasource='federated.exp05_geo'>
+            <column datatype='string' name='[State]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Regional_Sales]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Active_Cases]' role='measure' type='quantitative' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Regional_Sales]' derivation='Sum' name='[sum:Regional_Sales:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Active_Cases]' derivation='Sum' name='[sum:Active_Cases:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+          <encodings>
+            <color column='[federated.exp05_geo].[sum:Active_Cases:qk]' />
+          </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.exp05_geo].[none:State:nk]</rows>
+        <cols>[federated.exp05_geo].[sum:Regional_Sales:qk]</cols>
+        
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Exp 5 Geo Dashboard'>
+      <style />
+      <size maxheight='768' maxwidth='1366' minheight='768' minwidth='1366' />
+      <zones>
+        <zone h='100000' id='2' name='City Bubble Map' w='50000' x='0' y='0' />
+        <zone h='100000' id='3' name='State Sales &amp; Cases' w='50000' x='50000' y='0' />
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class='worksheet' name='City Bubble Map'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'><card type='columns' /></strip>
+          <strip size='2147483647'><card type='rows' /></strip>
+          <strip size='31'><card type='title' /></strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='State Sales &amp; Cases'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'><card type='columns' /></strip>
+          <strip size='2147483647'><card type='rows' /></strip>
+          <strip size='31'><card type='title' /></strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='dashboard' maximized='true' name='Exp 5 Geo Dashboard'>
+      <viewpoints />
+      <active id='-1' />
+    </window>
+  </windows>
+</workbook>
